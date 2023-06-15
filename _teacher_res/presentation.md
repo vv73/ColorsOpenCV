@@ -1,29 +1,15 @@
 ## Презентация
 
-Слайд №1 - Название занятия, картинка ![](https://developers.google.com/static/mediapipe/images/solutions/examples/hand_gesture_480.png)
+Слайд №1 - Название занятия, картинка ![](https://cs11.pikabu.ru/post_img/big/2020/10/08/3/1602126928171838897.jpg)
 
-Слайд №2 - Задание: Проект Hands, запустите `intro.py`
+Слайд №2 - Непонятные ползунки
 
-Слайд №3 - Задание: Проект Hands, блокнот `hands.pynb` выполните первое задание: переделайте программу так, чтобы она работала с видеопотоком, то есть брала изображение с камеры.
+На слайде скриншот ![](https://github.com/vv73/ColorsOpenCV/raw/master/_common_res/intro.png)
 
-Слайды №4-5 - Возможности Mediapipe c картинками отсюда https://developers.google.com/mediapipe/solutions/examples и подписями на русском (перевести)
+И задание: Запустите программу `intro.py`. 
 
-Слайд №6 - Модули Mediapipe (таблица) с таблицей из https://developers.google.com/mediapipe/solutions/guide
+Поэкспериментируйте с ней и предложите хорошие названия вместо странных `v1`, `v2`, `v3`.
 
-Слайд №7 - Несовершенство ИИ ![](https://github.com/vv73/HandsMediapipe/raw/master/_common_res/unrecognized.png)
-
-Слайд №8 - Задача №2. Допишите функцию, которая принимает имя картинки и определяет, есть ли рука на этой картинке
-
-![](https://github.com/vv73/HandsMediapipe/raw/master/_common_res/task2.png)
-
-Cлайд №9 - Решение задачи 2
-```
- ...  
- detection_result = detector.detect(image)
- result = False
- if len(detection_result.handedness) > 0:
- ...
-```
 Слайд №10 - Подведение итогов
 
 Что изучили, как изученное можно применить в проектах?
