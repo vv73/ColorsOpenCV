@@ -28,8 +28,17 @@
 
 *Это RGB-экран под микроскопом*
 
-https://res.cloudinary.com/practicaldev/image/fetch/s--7uHGwEG8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/HgnybWG/rgb.png
 
+
+## Работа c цветом в модели RGB
+
+Изображение в этой модели представляется трехмерным массивом:
+
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--7uHGwEG8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/HgnybWG/rgb.png)
+
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--BXoVOWNw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/yyDtW47/own2d.png)
+
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--L7_r7KuE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/hWdkRpd/last.png)
 
 
 
