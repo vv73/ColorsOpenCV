@@ -118,7 +118,7 @@ image[hcenter:, :wcenter, 2] = 0
 ```
 ![](../_common_res/task3.png)
 
-Слайд №10 - HSV (hue, saturation, value)
+Слайд №10 - HSV (Hue, Saturation, Value)
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/HSV_color_solid_cone_chroma_gray.png/296px-HSV_color_solid_cone_chroma_gray.png)
 
