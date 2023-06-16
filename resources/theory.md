@@ -28,17 +28,76 @@
 
 *Это RGB-экран под микроскопом*
 
-
-
 ## Работа c цветом в модели RGB
 
-Изображение в этой модели представляется трехмерным массивом:
+Загруженное в OpenCV Изображение в этой модели представляется трехмерным массивом:
 
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--7uHGwEG8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/HgnybWG/rgb.png)
 
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--BXoVOWNw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/yyDtW47/own2d.png)
 
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--L7_r7KuE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/hWdkRpd/last.png)
+
+Но, **внимание**! Порядок цветов другой BGR - цвета следуют в _обратном_ порядке. `image[:, :, 0]` соответствует плоскости _синей_ компоненты.
+
+На самом деле мы всегда работали с трехмерным BGR-массивом, просто не обращали на это внимание. Например, команда `image[:, :4] = 0`, которая делает черными первых три строки пикселей изображения, на самом деле работает так: `image[:, :4, :] = 0`, то есть обращение происходит по всем элементам третьего измерения: красному, синему и зеленому, вернее, к синему, зеленому и красному. Если мы хотим обратиться только к зеленой компоненте пикселя с координатами `(x, y)`, то можем использовать конструкцию `image[y, x, 1]=...`. 
+
+Например, если мы захотим обесцветить изображение, сделать его черно-белым с оттенками серого, то можно пробежаться по всем пикселям изображения и заменить все три значения на среднее:
+
+Программа **example1.py**.
+
+```python
+import cv2
+import numpy as np
+
+# Загружаем и сразу показываем изображение
+image = cv2.imread("pics/cat2.jpg")
+cv2.imshow("Image", image)
+# Узнаем его ширину и высоту
+width = image.shape[1]
+height = image.shape[0]
+# Обесцвечиваем вручную
+for y in range(height):
+    for x in range(width):
+        image[y, x] = int(np.average(image[y, x]))
+# Показываем результат
+cv2.imshow("Grayscale", image)
+# Задерживаем программу до нажатия на кнопку
+cv2.waitKey(0)
+```
+![](../_common_res/example1.png)
+
+Кстати, обратите внимание, глаза остались зеленоватыми, а нос розовым. Почему?
+
+А теперь сделаем эффект RGB: оставим в каждом столбце только синий, зеленый, красный и т.д.
+
+```python
+# RGB эффект
+
+import cv2
+import numpy as np
+
+# Загружаем и сразу показываем изображение
+image = cv2.imread("pics/cat2.png")
+cv2.imshow("Image", image)
+
+image[:, ::3, 0] = 0
+image[:, ::3, 1] = 0
+
+image[:, 1::3,  1] = 0
+image[:, 1::3, 2] = 0
+
+image[:, 2::3, 0] = 0
+image[:, 2::3, 2] = 0
+
+# Показываем результат
+cv2.imshow("RGB", image)
+# Задерживаем программу до нажатия на кнопку
+cv2.waitKey(0)
+```
+![](../_common_res/example2.png)
+
+## Цветовая модель HSV
 
 
 

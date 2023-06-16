@@ -20,9 +20,59 @@
 
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--L7_r7KuE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/hWdkRpd/last.png)
 
-Слайд №5 - 
+Слайд №5 - Работа с RGB в OpenCV
 
-Слайд №5 - HSV (hue, saturation, value)
+```python
+# Grayscale вручную
+
+import cv2
+import numpy as np
+
+# Загружаем и сразу показываем изображение
+image = cv2.imread("pics/cat2.png")
+cv2.imshow("Image", image)
+# Узнаем его ширину и высоту
+width = image.shape[1]
+height = image.shape[0]
+# Обесцвечиваем вручную
+for y in range(height):
+    for x in range(width):
+        image[y, x] = int(np.average(image[y, x]))
+
+# Показываем результат
+cv2.imshow("Grayscale", image)
+
+# Задерживаем программу до нажатия на кнопку
+cv2.waitKey(0)
+```
+
+![](../_common_res/example1.png)
+
+Слайд №6 - Работа с RGB в OpenCV
+
+```python
+# Загружаем и сразу показываем изображение
+image = cv2.imread("pics/cat2.png")
+cv2.imshow("Image", image)
+
+image[:, ::3, 0] = 0
+image[:, ::3, 1] = 0
+
+image[:, 1::3,  1] = 0
+image[:, 1::3, 2] = 0
+
+image[:, 2::3, 0] = 0
+image[:, 2::3, 2] = 0
+
+# Показываем результат
+cv2.imshow("RGB", image)
+# Задерживаем программу до нажатия на кнопку
+cv2.waitKey(0)
+```
+
+![](../_common_res/example2.png)
+
+Слайд №7 - HSV (hue, saturation, value)
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/HSV_color_solid_cone_chroma_gray.png/296px-HSV_color_solid_cone_chroma_gray.png)
 
