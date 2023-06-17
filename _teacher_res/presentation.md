@@ -122,8 +122,45 @@ image[hcenter:, :wcenter, 2] = 0
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/HSV_color_solid_cone_chroma_gray.png/296px-HSV_color_solid_cone_chroma_gray.png)
 
+В OpenCV компоненты `HSV` - это целые числа:
+
+| Компонент     | min | max   |
+|---------------|-----|-------|
+| `H`           | 0   | 180   |
+| `S`           | 0   | 255   |
+| `V`           | 0   | 255   |
 
 
+Слайд №11 - Работа в HSV (Hue, Saturation, Value)
+
+```python
+# Переводим в HSV
+image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+# Увеличиваем яркость (третью компоненту)
+image_hsv[:, :, 2] = np.clip(image_hsv[:,:,2].astype(np.int32) + 30, 0, 255)
+
+# Переводим обратно в BGR
+light_image = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2BGR)
+```
+
+![](../_common_res/example3.png)
+
+Слайд №12 - Выделение объектов по цвету
+
+Выделяем оранжевый
+
+```python
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+mask = cv2.inRange(hsv,(10, 100, 20), (25, 255, 255) )
+cv2.imshow("orange", mask)
+cv2.waitKey()
+cv2.destroyAllWindows()
+```
+
+![img_1.png](img_1.png)
+
+Слайд №13
 
 Слайд №10 - Подведение итогов
 
